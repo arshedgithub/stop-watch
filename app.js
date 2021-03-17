@@ -3,7 +3,8 @@ const seconds = document.getElementById("seconds");
 const miliSeconds = document.getElementById("miliSeconds");
 let sec = 0;
 let milisec = 0;
-let Interval;
+let secInterval;
+let milisecInterval;
 
 // count up seconds
 secondTimer = () => {
@@ -42,20 +43,23 @@ btnPad.addEventListener('click', e => {
 
     // start timer
     if (target.id === 'start') {
-        Interval = setInterval(milisecTimer,10);
+        milisecInterval = setInterval(milisecTimer,10);
+        secInterval = setInterval(secondTimer,1000);
         return;
     }    
     
     // stop timer
     if (target.id === 'stop') {
-        clearInterval(Interval);  //stop the timer
+        clearInterval(secInterval);  //stop the timer
+        clearInterval(milisecInterval);  //stop the timer
         return;
     }
 
     // reset the time
     if (target.id === 'reset') {
         resetFunc();
-        clearInterval(Interval);  //stop the timer
+        clearInterval(secInterval);  //stop the timer
+        clearInterval(milisecInterval);  //stop the timer
         return;
     }
 });
