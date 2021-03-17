@@ -14,8 +14,7 @@ secondTimer = () => {
         seconds.innerText = '0' + sec;  
     } else {
         seconds.innerText = sec;
-    }
-    
+    } 
 }
 
 // count up milliseconds
@@ -34,31 +33,31 @@ milisecTimer = () => {
         miliSeconds.innerText = '0' + milisec;  
     } else {
         miliSeconds.innerText = milisec;
-    }
-    
+    }   
 }    
 
-
-
+// handle the buttons
 btnPad.addEventListener('click', e => {
-    let {target} = e ;
+    let {target} = e ;  // destrucutring from ES6
 
+    // start timer
     if (target.id === 'start') {
         Interval = setInterval(milisecTimer,10);
         return;
     }    
     
+    // stop timer
     if (target.id === 'stop') {
         clearInterval(Interval);  //stop the timer
         return;
     }
 
+    // reset the time
     if (target.id === 'reset') {
         resetFunc();
         clearInterval(Interval);  //stop the timer
         return;
     }
-    
 });
 
 // reset the clock
