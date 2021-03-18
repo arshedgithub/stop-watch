@@ -44,6 +44,7 @@ btnPad.addEventListener('click', e => {
 
     // start timer
     if (target.id === 'start') {
+
         startBtn.setAttribute("disabled", true);  // prevent the double click
         milisecInterval = setInterval(milisecTimer,10);
         secInterval = setInterval(secondTimer,1000);
