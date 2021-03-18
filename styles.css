@@ -31,3 +31,10 @@
     font-size: 20px;
     font-family: cursive;
 }
+
+@media screen and (max-width: 450px){
+    .watch{
+        width: 90%;
+        padding: 5% 0;
+    }
+}
