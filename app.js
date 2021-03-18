@@ -43,6 +43,7 @@ btnPad.addEventListener('click', e => {
 
     // start timer
     if (target.id === 'start') {
+        document.getElementById('start').setAttribute('disabled', true);
         milisecInterval = setInterval(milisecTimer,10);
         secInterval = setInterval(secondTimer,1000);
         return;
@@ -50,6 +51,7 @@ btnPad.addEventListener('click', e => {
     
     // stop timer
     if (target.id === 'stop') {
+        document.getElementById('start').removeAttribute('disabled');
         clearInterval(secInterval);  //stop the timer
         clearInterval(milisecInterval);  //stop the timer
         return;
@@ -57,6 +59,7 @@ btnPad.addEventListener('click', e => {
 
     // reset the time
     if (target.id === 'reset') {
+        document.getElementById('start').removeAttribute('disabled');
         resetFunc();
         clearInterval(secInterval);  //stop the timer
         clearInterval(milisecInterval);  //stop the timer
