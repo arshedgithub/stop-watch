@@ -1,6 +1,7 @@
 const btnPad = document.querySelector('.btn-pad');
 const seconds = document.getElementById("seconds");
 const miliSeconds = document.getElementById("miliSeconds");
+const startBtn = document.getElementById("start");
 let sec = 0;
 let milisec = 0;
 let secInterval;
@@ -43,7 +44,8 @@ btnPad.addEventListener('click', e => {
 
     // start timer
     if (target.id === 'start') {
-        document.getElementById('start').setAttribute('disabled', true);
+
+        startBtn.setAttribute("disabled", true);  // prevent the double click
         milisecInterval = setInterval(milisecTimer,10);
         secInterval = setInterval(secondTimer,1000);
         return;
@@ -51,7 +53,7 @@ btnPad.addEventListener('click', e => {
     
     // stop timer
     if (target.id === 'stop') {
-        document.getElementById('start').removeAttribute('disabled');
+        startBtn.removeAttribute("disabled");
         clearInterval(secInterval);  //stop the timer
         clearInterval(milisecInterval);  //stop the timer
         return;
@@ -59,7 +61,7 @@ btnPad.addEventListener('click', e => {
 
     // reset the time
     if (target.id === 'reset') {
-        document.getElementById('start').removeAttribute('disabled');
+        startBtn.removeAttribute("disabled");
         resetFunc();
         clearInterval(secInterval);  //stop the timer
         clearInterval(milisecInterval);  //stop the timer
